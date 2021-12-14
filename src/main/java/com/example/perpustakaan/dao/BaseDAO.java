@@ -22,8 +22,6 @@ public class BaseDAO<T extends BaseEntity<T>> {
     @PersistenceContext
     protected EntityManager entityManager;
 
-
-
     private Class<T> type;
 
     {
@@ -39,7 +37,7 @@ public class BaseDAO<T extends BaseEntity<T>> {
 
         query.orderBy(builder.asc(root.get("id")));
 
-        return singleResult(query, predicates(param, builder, root,  false));
+        return singleResult(query, predicates(param, builder, root, false));
     }
     
     public Collection<T> find(T param, int offset, int limit){
@@ -51,7 +49,7 @@ public class BaseDAO<T extends BaseEntity<T>> {
         
         query.orderBy(builder.asc(root.get("id")));
         
-        return listResult(query, predicates(param, builder, root,  false), offset, limit);
+        return listResult(query, predicates(param, builder, root, false), offset, limit);
     }
 
     public Long count(T param){
@@ -63,7 +61,7 @@ public class BaseDAO<T extends BaseEntity<T>> {
 
         query.select(builder.count(root));
 
-        return singleResult(query, predicates(param, builder, root,  true));
+        return singleResult(query, predicates(param, builder, root, true));
     }
 
     public T save(T entity){
