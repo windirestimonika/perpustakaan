@@ -13,9 +13,10 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RestResult implements Serializable {
 
+    private static final long serialVersionUID = -2850662391791920L;
     private Object data;
 
-    private Long rows;
+    private long rows;
 
     private String status = StatusCode.OPERATION_SUCCESS;
 
@@ -23,7 +24,7 @@ public class RestResult implements Serializable {
         this.data = data;
     }
 
-    public RestResult(Object data, Long rows){
+    public RestResult(Object data, long rows){
         this.data = data;
         this.rows = rows;
     }
