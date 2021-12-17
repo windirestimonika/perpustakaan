@@ -16,6 +16,9 @@ public class Loan extends BaseEntity<Loan>{
 
     private static final long serialVersionUID = -6736889414349420560L;
 
+    public void setStatus(StatusLoan borrowed) {
+    }
+
     public enum StatusLoan{
         BORROWED,
         RETURNED
