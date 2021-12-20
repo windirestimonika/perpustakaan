@@ -39,4 +39,7 @@ public class User extends BaseEntity<User> {
     @Column(name = "token")
     private String token;
 
+    public User(String userName) {
+        this.userName = userName;
+    }
 }

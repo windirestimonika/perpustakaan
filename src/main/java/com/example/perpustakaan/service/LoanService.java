@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 @Service
@@ -28,7 +30,7 @@ public class LoanService extends BaseService<Loan> {
     }
 
     @Transactional
-    public Loan uodate(Loan entity){
+    public Loan update(Loan entity){
         if (entity.getId() != null){
             Loan reference = getDAO().findReference(entity.getId());
 
@@ -46,5 +48,11 @@ public class LoanService extends BaseService<Loan> {
             return entity;
         }
         return null;
+    }
+
+    @Transactional
+    public Collection<Loan> findByDate(Loan entity, Date startDate, Date endDate){
+        Collection<Loan> result = dao.findByDate(entity, startDate, endDate);
+        return result.size() > 0 ? result : new ArrayList<>();
     }
 }
